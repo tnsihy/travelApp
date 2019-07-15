@@ -21,11 +21,14 @@ npm run build --report
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
 
 
+
+-------------------------------------------------------------------------------
 - Git
-  - 进入travel文件夹git status查看本地仓库文件未上传
-  - git add .
-  - git commit -m '***'
-  - 推送到Github上 git push
+  - 进入travel文件夹`git status`查看本地仓库文件未上传
+  - `git add .`
+  - `git commit -m '***'`
+  - 推送到Github上 `git push`
+  - 创建分支 `git pull`把线上分支拉到本地  `git checkout ***`切换分支
 
 - 移动端网页
   - 配置页面 鼠标无法缩放 `minium-scale=1.0,maxinum-scale=1.0,user-scalable=no`
@@ -35,7 +38,7 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
   - `assets/styles/border.css` 1像素边框问题
   - 引入fastclick库 解决移动端300ms点击(click事件)延迟问题 `npm install fastclick --save` 
 
-- 首页header部分
+- 首页Header部分
     - 使用stylus编写css样式 
       - `npm install stylus --save`
       - `npm install stylus-loader --save`
@@ -47,3 +50,10 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
         - 在相应vue组件内引入`@import '../../..'`
         - 或者`@import '@/../..'` (是根据webpack.base.conf.js-resolve-alias设置@替换 可以自己再设置一个，重新设置后需重启服务)
         - /*NOTICE!*/ 在一个css中引入样式  需要加`~`例如`@import '~@/../..'`
+
+- 首页轮播
+  - 在Github上查询vue-awesome-swiper 安装swiper3版本`npm install vue-awesome-swiper@2.6.7 --save` 根据Github上说明使用
+  - 为使图片未加载时撑开一定高度 避免页面抖动 通过图片高度与宽度的比例31.25 设置`width:100% height:0 padding-bottom:31.25%`
+  - 为轮播加圆点(分页导航`pagination`)
+    - 圆点样式颜色更改  Swiper插件的class名且scope的缘故，采用`>>>`穿透 
+   - 循环切换`loop: true`
