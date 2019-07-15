@@ -91,3 +91,8 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
   - 发现问题 轮播图刷新默认显示最后一个页面 
     - 在`<swiper>`标签内`v-if="swiperList(传递过来的数据).length"`使有数据时swiper才被创建
     - 或者在计算属性`computed`中判断后再写入`<swiper>`标签中
+
+----
+- 城市选择页面 路由配置
+- 在`router/index.js`配置
+- 使用`<router-link to="">`实现页面跳转
