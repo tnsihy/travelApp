@@ -24,7 +24,7 @@ export default {
       swiperList: [
         {
           id: '0001',
-          imgUrl: 'https://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20197/3f5ff03fa0c024b930f515e63ae2c702.jpg_945x288_7dff4510.jpg'
+          imgUrl: 'https://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20197/a685001bbf5e77a203ff8815e953efbe.jpg_945x288_52b6ec01.jpg'
         },
         {
           id: '0002',
@@ -43,7 +43,7 @@ export default {
   overflow hidden
   width 100%
   height 0
-  padding-bottom 31.25%
+  padding-bottom 30.1%
   .swiper-image
     width 100%
     background #ccc

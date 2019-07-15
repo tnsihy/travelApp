@@ -26,9 +26,13 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 - Git
   - 进入travel文件夹`git status`查看本地仓库文件未上传
   - `git add .`
-  - `git commit -m '***'`
+  - `git commit -m '***(描述)'`
   - 推送到Github上 `git push`
-  - 创建分支 `git pull`把线上分支拉到本地  `git checkout ***`切换分支
+  - 创建分支 `git pull`把线上分支拉到本地  `git checkout ***(分支名)`切换分支
+  - 合并分支
+    - `git checkout master` 切换到master
+    - `git merge origin/***(分支名)` 合并到master上
+    - `git push`
 
 - 移动端网页
   - 配置页面 鼠标无法缩放 `minium-scale=1.0,maxinum-scale=1.0,user-scalable=no`
@@ -53,7 +57,16 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 
 - 首页轮播
   - 在Github上查询vue-awesome-swiper 安装swiper3版本`npm install vue-awesome-swiper@2.6.7 --save` 根据Github上说明使用
-  - 为使图片未加载时撑开一定高度 避免页面抖动 通过图片高度与宽度的比例31.25 设置`width:100% height:0 padding-bottom:31.25%`
+  - 为使图片未加载时撑开一定高度 避免页面抖动 通过图片高度与宽度的比例30.1 设置`width:100% height:0 padding-bottom:30.1%`
   - 为轮播加圆点(分页导航`pagination`)
     - 圆点样式颜色更改  Swiper插件的class名且scope的缘故，采用`>>>`穿透 
    - 循环切换`loop: true`
+
+- 图标布局
+  - /*NOTICE!*/ 根据宽高比例设置
+  - 解决轮播效果中 只有一个热门景点时拖拽下方无法实现轮播  `设置高度一致` 
+  - 使用vue-awesome-swiper制作轮播图，手动拖动时报错 解决：`touch-action none`
+  - 1个页面只能显示8个图标，第9个显示不出 使用计算属性`computed`在哪一页显示 -> 二维数组
+  - 优化
+    - 当描述`desc`文字过多时做的处理 希望是省略号(...)
+      - 对于单行文字省略 `overflow:hidden white-space:nowrap text-overflow ellipsis`
