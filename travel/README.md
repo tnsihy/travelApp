@@ -24,15 +24,20 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 
 -------------------------------------------------------------------------------
 - Git
-  - 进入travel文件夹`git status`查看本地仓库文件未上传
+  - 进入travel文件夹`git status` 查看本地仓库文件未上传
   - `git add .`
   - `git commit -m '***(描述)'`
   - 推送到Github上 `git push`
-  - 创建分支 `git pull`把线上分支拉到本地  `git checkout ***(分支名)`切换分支
+  - 创建分支 `git pull` 把线上分支拉到本地  `git checkout ***(分支名)` 切换分支
   - 合并分支
     - `git checkout master` 切换到master
     - `git merge origin/***(分支名)` 合并到master上
     - `git push`
+  - 删除分支
+    - `git checkout master` 切换到主分支
+    - `git branch -a` 查看已有的本地远程分支
+    - `git push origin --delete ***(远程分支)` 删除远程分支
+    - `git branch -a` 删除后查看分支情况
 
 - 移动端网页
   - 配置页面 鼠标无法缩放 `minium-scale=1.0,maxinum-scale=1.0,user-scalable=no`
@@ -94,5 +99,8 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 
 ----
 - 城市选择页面 路由配置
-- 在`router/index.js`配置
-- 使用`<router-link to="">`实现页面跳转
+  - 在`router/index.js`配置
+  - 使用`<router-link to="">`实现页面跳转
+
+- 城市搜索框
+  - 样式设置不需要写前缀  因为`vue-cli`打包项目时自动加上
