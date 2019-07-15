@@ -71,7 +71,23 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
     - 当描述`desc`文字过多时做的处理 希望是省略号(...)
       - 对于单行文字省略 `overflow:hidden white-space:nowrap text-overflow ellipsis`
       - 采用外部样式`mixins.styl`
+  - 当希望图片不要自动轮播时 `autoplay: false`
 
 - 推荐组件(热销区块 周末去哪儿)
   - 1像素边框解决方案  只需在class中增加`border-bottom`
   - 显示省略号`minxins.styl`失效  在`flex`布局样式中增加`min-width：0`保证内容不超出外层容器
+
+- Ajax获取首页数据
+  - 安装axios `npm install axios --save`
+    - 在Home.vue中发送ajax请求 而不是在所有组件中
+    - 写完`axios.get('/api/***').then(***)`报错`GET http://localhost:8080/api/index.json 404 (Not Found)` 是因为找不到
+  - 在没有后端服务支持的情况下，实现数据模拟
+    - 可以将`.json`文件存放在static文件夹中，通过url可以访问到静态资源 但是`/static/mock/***`只是数据模拟，不支持上线，应该是`/api/***`
+    - 写回`/api/***`要通过转发机制上线才能使用  webpack提供了一个代理功能：在config/index.js中`proxyTable:{'/api':{target:'http://localhost:8080',pathRewrite:{ '^/api': '/static/mock'}`
+    - 更改了配置项 需要重启服务
+
+- 首页父子组件数据传递
+  - 通过`props`接收
+  - 发现问题 轮播图刷新默认显示最后一个页面 
+    - 在`<swiper>`标签内`v-if="swiperList(传递过来的数据).length"`使有数据时swiper才被创建
+    - 或者在计算属性`computed`中判断后再写入`<swiper>`标签中
