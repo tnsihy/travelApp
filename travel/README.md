@@ -70,3 +70,8 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
   - 优化
     - 当描述`desc`文字过多时做的处理 希望是省略号(...)
       - 对于单行文字省略 `overflow:hidden white-space:nowrap text-overflow ellipsis`
+      - 采用外部样式`mixins.styl`
+
+- 推荐组件(热销区块 周末去哪儿)
+  - 1像素边框解决方案  只需在class中增加`border-bottom`
+  - 显示省略号`minxins.styl`失效  在`flex`布局样式中增加`min-width：0`保证内容不超出外层容器
