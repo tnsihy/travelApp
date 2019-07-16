@@ -40,7 +40,7 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
     - `git branch -a` 删除后查看分支情况
 
 - 移动端网页
-  - 配置页面 鼠标无法缩放 `minium-scale=1.0,maxinum-scale=1.0,user-scalable=no`
+  - 配置页面 鼠标无法缩放 `minimum-scale=1.0,maximum-scale=1.0,user-scalable=no`
   - `assets/styles/reset.css` 不同手机初始化样式统一
     - reset.css样式中font-size为50px，即1rem = 50px
     - 设计师给的是2倍尺寸图片86px -> 43px/50px = .86rem
@@ -90,6 +90,7 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
     - 可以将`.json`文件存放在static文件夹中，通过url可以访问到静态资源 但是`/static/mock/***`只是数据模拟，不支持上线，应该是`/api/***`
     - 写回`/api/***`要通过转发机制上线才能使用  webpack提供了一个代理功能：在config/index.js中`proxyTable:{'/api':{target:'http://localhost:8080',pathRewrite:{ '^/api': '/static/mock'}`
     - 更改了配置项 需要重启服务
+  - 可通过钩子函数`mounted`写一个函数 然后在`methods`写一个成功的函数去返回数据`res`，获取对应的数据
 
 - 首页父子组件数据传递
   - 通过`props`接收
@@ -115,3 +116,14 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
     - 查找说明上元素符合的DOM结构
     - 在需要的地方引入  可以用`ref`获取DOM 例如`ref='wrapper' ` 然后通过`this.scroll = new BetterScroll(this.$refs.wrappper)`使得可以滑动  有弹性动画效果
   - 字母垂直居中且竖直排列 `display:flex flex-direction:column justfy-content:center`
+  - `click`与`touchstart`事件
+    - 用户触发`touchstart`事件必然会触发`click`事件，反之不是
+    - 鼠标操作只能触发`click`事件
+    - PC设备为触摸屏幕时可同时支持`click`和`touchstart`事件
+    - 移动设备上浏览器将会在`click`事件发生时延迟300ms
+  - 同时绑定两个事件时，在移动设备上会发生冲突
+    - 解决：使用`preventDefault阻止元素的默认事件`
+  - `touchstart`事件：当手指触摸屏幕时候触发，即使已经有一个手指放在屏幕上也会触发
+  - `touchmove`事件：当手指在屏幕上滑动的时候连续地触发
+  - `touchend`事件：当手指从屏幕上离开的时候触发
+  - 滑动时报错`[Intervention] Unable to preventDefault inside passive event listener due to target being treated as passive. See URL` 解决 `*{touch-action:pan-y}`
