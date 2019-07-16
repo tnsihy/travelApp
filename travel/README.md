@@ -131,3 +131,9 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
     - 使用`updated`计算一些值，当axios获取到数据时，cities才有数据，Alphabet.vue发生变化，里边的数据也会更新即触发`updated`
     - 屏幕滑动频率很高，解决：使用`setTimeout`去延迟执行
       - 在16ms之间又做了手指滑动，会把上一次操作清除再执行本次操作
+
+- 城市搜索框
+  - `v-show`
+  - 通过`stringObject.indexOf(searchvalue,fromindex) > -1`知道是否searchvalue存在
+  - 监听某个值的变化可以用`watch:{ ***(被监听的值):function(){}}`
+  - 尽量不要在模块中写逻辑 例如`v-show="!list.length"`
