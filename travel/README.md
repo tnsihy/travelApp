@@ -97,10 +97,21 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
     - 在`<swiper>`标签内`v-if="swiperList(传递过来的数据).length"`使有数据时swiper才被创建
     - 或者在计算属性`computed`中判断后再写入`<swiper>`标签中
 
-----
+-------------------------------------------------------------------------------------
 - 城市选择页面 路由配置
   - 在`router/index.js`配置
   - 使用`<router-link to="">`实现页面跳转
 
 - 城市搜索框
   - 样式设置不需要写前缀  因为`vue-cli`打包项目时自动加上
+
+- 城市列表
+  - 在某元素前后元素设置样式 `&:before  &:after`
+  - `overflow:hidden`有隐藏溢出、清除浮动(父级)、解决外边距`margin`塌陷问题
+  - 先固定页面不能通过鼠标滑动
+  - 再使用`Better-scroll`插件 实现鼠标滑动
+    - 在Github上查找`Better-scroll`
+    - 安装`npm installl better-scroll --save`
+    - 查找说明上元素符合的DOM结构
+    - 在需要的地方引入  可以用`ref`获取DOM 例如`ref='wrapper' ` 然后通过`this.scroll = new BetterScroll(this.$refs.wrappper)`使得可以滑动  有弹性动画效果
+  - 字母垂直居中且竖直排列 `display:flex flex-direction:column justfy-content:center`
