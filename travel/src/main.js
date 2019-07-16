@@ -10,6 +10,7 @@ import VueAwesomeSwiper from 'vue-awesome-swiper'
 import 'styles/reset.css'
 import 'styles/border.css'
 import 'swiper/dist/css/swiper.css'
+import store from './store'
 
 // 解决移动端点击事件延迟问题
 import fastClick from 'fastclick'
@@ -22,6 +23,7 @@ Vue.use(VueAwesomeSwiper)
 new Vue({
   el: '#app',
   router,
+  store,
   components: {
     App
   },

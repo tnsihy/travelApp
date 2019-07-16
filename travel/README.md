@@ -137,3 +137,25 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
   - 通过`stringObject.indexOf(searchvalue,fromindex) > -1`知道是否searchvalue存在
   - 监听某个值的变化可以用`watch:{ ***(被监听的值):function(){}}`
   - 尽量不要在模块中写逻辑 例如`v-show="!list.length"`
+
+- 使用Vuex实现首页和城市搜索页面数据共享
+  - Home.vue和City.vue没有父级可以传递数据 可以使用`bus`但是比较麻烦
+  - 当使用复杂的数据传递时可以使用`Vuex`
+  - 核心：`State` `Mutation` `Action`
+    - `State`是共用数据 `Action`(异步操作、复杂同步操作) 通过`Mutation`去改变`State`的值
+  - 安装Vuex  `npm installl vuex --save`
+  - 创建`src/store/index.js`
+  - 引入Vue引入Vuex 创建仓库并暴露出去
+    - `import Vue from 'vue'`
+    - `import Vuex from 'vuex'`
+    - 插件使用`Vue.use(Vuex)`
+    - `export default new Vuex.Store({})`
+  - 在main.js引入`import store from './store'` 在Vue中注册`store`
+  - 使用`{{this.$store.state.***}}`获取
+  - 要改变state值 `this.$store.dispatch(***,***传递的值)`派发一个***的actions 然后在`store/index.js`写`actions` actions需要调用mutations去改变state  详情看`store/index.js`
+  - 若不是异步和复杂的同步操作可以不使用`actions`
+
+- 点击城市之后返回首页 涉及到路由的知识`Vue-router`
+  - 可以查询Vue.js官网Vue-router编程式导航 在Vue实例内部可以使用`this.$router.push`访问路由
+    - 声明式`<router-link :to>`
+    - 编程式`router.push(...)`
