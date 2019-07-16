@@ -36,6 +36,7 @@ export default {
     }
   },
   updated () {
+    // 获取A所在DOM的offsetTop值
     this.startY = this.$refs['A'][0].offsetTop
   },
   methods: {
