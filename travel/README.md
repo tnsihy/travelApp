@@ -187,3 +187,7 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
     - `:style:opacityStyle`
     - `opacityStyle:{ opacity:0}`
     - 根据滑动高度去计算opacity 然后赋值给opacityStyle  详情查看`detail/Header.vue`
+
+- 对全局事件的解绑
+  - 在钩子函数`activated`中`window.addEventListener('scroll', this.handleScroll)`是对全局的绑定 全局绑定的话会对其他页面也造成影响(不过我居然不会有一直输出console.log????)
+  - 钩子函数`deactivated`解除全局事件的绑定

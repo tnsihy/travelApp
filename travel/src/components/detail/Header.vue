@@ -17,7 +17,7 @@ export default {
   name: 'DetailHeader',
   data: function () {
     return {
-      showAbs: false,
+      showAbs: true,
       opacityStyle: {
         opacity: 0
       }
@@ -40,7 +40,11 @@ export default {
   },
   activated: function () {
     // 滚动监听
-    window.addEventListener('scroll', this.handleScroll)
+    // console.log('scroll')
+    window.addEventListener('scroll', this.handleScroll, {passive: true})
+  },
+  deactivated: function () {
+    window.removeEventListener('scroll', this.handleScroll)
   }
 }
 </script>
