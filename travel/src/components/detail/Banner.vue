@@ -3,17 +3,17 @@
     <div class="banner" @click="handleBannerClick">
       <img
         class="banner-img"
-        src="http://img1.qunarzz.com/sight/p0/1507/64/34362835b4a219af8b36803d31a6380f.water.jpg_600x330_4ae7abf5.jpg"
+        :src="bannerImg"
       />
       <div class="banner-info">
-        <div class="banner-title">大连圣亚海洋世界(AAAA景区)</div>
+        <div class="banner-title">{{this.sightName}}</div>
         <div class="banner-number">
           <i class="iconfont icontupian banner-icon"></i>
-          39
+          {{this.gallaryImgs.length}}
         </div>
       </div>
     </div>
-    <common-gallary :imgs="imgs" v-show="showGallary" @close="handleGallaryClick"></common-gallary>
+    <common-gallary :gallaryImgs="gallaryImgs" v-show="showGallary" @close="handleGallaryClick"></common-gallary>
   </div>
 </template>
 
@@ -21,15 +21,16 @@
 import CommonGallary from '$common/gallary/Gallary'
 export default {
   name: 'DetailBanner',
+  props: ['bannerImg', 'sightName', 'gallaryImgs'],
   data: function () {
     return {
-      imgs: [{
-        id: '0001',
-        imgUrl: 'http://img1.qunarzz.com/sight/p0/1507/64/34362835b4a219af8b36803d31a6380f.water.jpg_600x330_4ae7abf5.jpg'
-      }, {
-        id: '0002',
-        imgUrl: 'http://img1.qunarzz.com/sight/p0/1507/64/34362835b4a219af8b36803d31a6380f.water.jpg_600x330_4ae7abf5.jpg'
-      }],
+      // imgs: [{
+      //   id: '0001',
+      //   imgUrl: 'http://img1.qunarzz.com/sight/p0/1507/64/34362835b4a219af8b36803d31a6380f.water.jpg_600x330_4ae7abf5.jpg'
+      // }, {
+      //   id: '0002',
+      //   imgUrl: 'http://img1.qunarzz.com/sight/p0/1507/64/34362835b4a219af8b36803d31a6380f.water.jpg_600x330_4ae7abf5.jpg'
+      // }],
       showGallary: false
     }
   },
