@@ -159,3 +159,23 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
   - 可以查询Vue.js官网Vue-router编程式导航 在Vue实例内部可以使用`this.$router.push`访问路由
     - 声明式`<router-link :to>`
     - 编程式`router.push(...)`
+
+-----------------------------------------------------------------------------
+- 详情页面 点击热销推荐的`查看详情`可跳转页面
+  - 在`<ul>`标签内写`<router-link>`时需要写成`<router-link tag="li" :to="">`
+  - 各个详情页面跳转页面不同`:to="/detail/" + item.id` 可根据id不同跳转不同
+  - 设置路由
+  - 图片下方透明度渐变效果
+    - 在`banner-info`内设置渐变`background-image:linear-gradient(top,rgba(0,0,0,0),rgba(0,0,0,.8))`
+
+- 公用图片画廊组件拆分
+  - 若很多功能页面都需要有的效果 -> 公用组件 -> 可以放在`common`
+  - `position fixed`固定定位，不随滚动条移动而变化
+  - 使用`swiper`实现轮番 可以查看swiper官网 `paginationType:'fraction'`可以实现分式
+  - 由于`overflow:hidden`会隐藏溢出 可以通过`>>>`将组件的样式换掉
+  - 轮播图出现滚动问题
+    - 由于`v-show`的变化导致swiper关闭或者重启 
+    - 监视器
+      - `observeParents:true`
+      - `observer:true` 
+    - swiper插件监听到observer或者observeParents发生DOM变化时自我刷新
