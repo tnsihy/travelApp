@@ -179,3 +179,11 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
       - `observeParents:true`
       - `observer:true` 
     - swiper插件监听到observer或者observeParents发生DOM变化时自我刷新
+
+- 实现header渐隐渐现效果
+  - 页面没有内容也可以滚动 可以通过设置`height:50rem`去撑开一个空白区域
+  - `<keep-alive>`是一个抽象组件 会触发`activated`钩子函数
+  - 渐隐渐现效果
+    - `:style:opacityStyle`
+    - `opacityStyle:{ opacity:0}`
+    - 根据滑动高度去计算opacity 然后赋值给opacityStyle  详情查看`detail/Header.vue`
