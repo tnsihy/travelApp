@@ -191,3 +191,8 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 - 对全局事件的解绑
   - 在钩子函数`activated`中`window.addEventListener('scroll', this.handleScroll)`是对全局的绑定 全局绑定的话会对其他页面也造成影响(不过我居然不会有一直输出console.log????)
   - 钩子函数`deactivated`解除全局事件的绑定
+
+- 使用递归组件实现详情页面列表
+  - 当数据有`children`时 然后列表多级输出可以使用递归组件
+    - 即在自身vue中使用自身的组件 例子是在`List.vue`中使用`<detail-list></detail-list>`
+    - 判断是否存在children `v-if="item.children"`有就使用递归组件
