@@ -216,3 +216,9 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
   - 在`router/index.js`中增加一项`scrollBehavior (to, from, savedPosition) {`
     `return { x: 0, y: 0 }`
   - `}`
+
+- 为轮播组件做渐隐渐现效果
+  - `<transition><slot></slot></transition>`
+  - `.v-enter .v-leave-to  opacity:0`
+  - `.v-enter-active,.v-leave-active  transition opacity 0.5s`
+  - 将`<transition>`包裹在需要动画效果的标签外层 里层相当于`<slot>`

@@ -13,29 +13,30 @@
         </div>
       </div>
     </div>
-    <common-gallary :gallaryImgs="gallaryImgs" v-show="showGallary" @close="handleGallaryClick"></common-gallary>
+    <common-animation>
+      <common-gallary
+        :gallaryImgs="gallaryImgs"
+        v-show="showGallary"
+        @close="handleGallaryClick"
+      ></common-gallary>
+    </common-animation>
   </div>
 </template>
 
 <script>
 import CommonGallary from '$common/gallary/Gallary'
+import CommonAnimation from '$common/fade/Animation'
 export default {
   name: 'DetailBanner',
   props: ['bannerImg', 'sightName', 'gallaryImgs'],
   data: function () {
     return {
-      // imgs: [{
-      //   id: '0001',
-      //   imgUrl: 'http://img1.qunarzz.com/sight/p0/1507/64/34362835b4a219af8b36803d31a6380f.water.jpg_600x330_4ae7abf5.jpg'
-      // }, {
-      //   id: '0002',
-      //   imgUrl: 'http://img1.qunarzz.com/sight/p0/1507/64/34362835b4a219af8b36803d31a6380f.water.jpg_600x330_4ae7abf5.jpg'
-      // }],
       showGallary: false
     }
   },
   components: {
-    CommonGallary
+    CommonGallary,
+    CommonAnimation
   },
   methods: {
     handleBannerClick: function () {
