@@ -56,9 +56,8 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
     - iconfont的使用
     - 优化代码
       - 样式style相同 可通过创建`assets/styles/varibles.styl`存放一些经常会使用到的样式，如颜色等 `$bgColor = #00bcd4` 去简化代码
-        - 在相应vue组件内引入`@import '../../..'`
-        - 或者`@import '@/../..'` (是根据webpack.base.conf.js-resolve-alias设置@替换 可以自己再设置一个，重新设置后需重启服务)
-        - /*NOTICE!*/ 在一个css中引入样式  需要加`~`例如`@import '~@/../..'`
+        - 在相应vue组件内引入`@import '../../..'` 在css内引入用@import
+        - 或者`@import '~@/../..'` (是根据webpack.base.conf.js-resolve-alias设置@替换 可以自己再设置一个，重新设置后需重启服务 需要加`~`)
 
 - 首页轮播
   - 在Github上查询vue-awesome-swiper 安装swiper3版本`npm install vue-awesome-swiper@2.6.7 --save` 根据Github上说明使用
