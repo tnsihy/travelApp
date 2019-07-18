@@ -39,17 +39,21 @@ export default {
     flex 1
     background #ffffff
     border-radius 0.05rem
-    margin-top 0.10rem
+    margin-top 0.12rem
     height 0.64rem
     line-height 0.64rem
     margin-left 0.2rem
     color #ccc
     padding-left 0.2rem
   .header-right
+    min-width 1.24rem
     width 1.24rem
     float right
     text-align center
     color #fff
+    overflow hidden
+    white-space nowrap
+    text-overflow ellipsis
     .i-right
       font-size 0.2rem
 </style>

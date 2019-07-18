@@ -222,3 +222,21 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
   - `.v-enter .v-leave-to  opacity:0`
   - `.v-enter-active,.v-leave-active  transition opacity 0.5s`
   - 将`<transition>`包裹在需要动画效果的标签外层 里层相当于`<slot>`
+
+- Vue项目的接口联调
+  - 之前使用的是`static/mock`上的模拟数据
+  - 现在要将后台的真实数据拿到
+  - 创建一个`server`文件夹
+    - 安装Koa `npm install koa --save`
+    - 安装Koa-router `npm install koa-router --save`
+    - 可以使用`fs`模块读取`json`文件返回
+    - 将前端的`config/index.js`中`proxyTable`的URL端口换为后台端口 例如`3000` 将`pathRewrite`对应到后台的文件夹 修改`config`后前端服务需重启
+
+- 真机测试
+  - 可以通过`cmd` -> `ipconfig`查找本机上网ip地址 将ip地址放到网址上 是打不开的
+   - 解决 将前端的`package.json`的`scripts` -> `dev`修改为
+     - `webpack-dev-server --host 0.0.0.0 --inline --progress --config build/webpack.dev.conf.js`
+     - 即增加`--host 0.0.0.0` 网址就可以打开
+ - 与手机在同一个局域网内时 手机可以通过ip + 端口号的形式访问到
+ - 可能出现低版本手机访问为`白屏` 可以安装`npm install babel-polyfill --save`
+   - 在main.js引入`import 'babel-polyfill'`

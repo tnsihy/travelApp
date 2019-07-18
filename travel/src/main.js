@@ -5,6 +5,8 @@ import App from './App'
 import router from './router'
 // 引入Swiper插件
 import VueAwesomeSwiper from 'vue-awesome-swiper'
+// 引入babel-polyfill
+import 'babel-polyfill'
 
 // 引入静态资源 详细查看README.md
 import 'styles/reset.css'
