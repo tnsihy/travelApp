@@ -87,7 +87,7 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
     - 写完`axios.get('/api/***').then(***)`报错`GET http://localhost:8080/api/index.json 404 (Not Found)` 是因为找不到
   - 在没有后端服务支持的情况下，实现数据模拟
     - 可以将`.json`文件存放在static文件夹中，通过url可以访问到静态资源 但是`/static/mock/***`只是数据模拟，不支持上线，应该是`/api/***`
-    - 写回`/api/***`要通过转发机制上线才能使用  webpack提供了一个代理功能：在config/index.js中`proxyTable:{'/api':{target:'http://localhost:8080',pathRewrite:{ '^/api': '/static/mock'}` 其实是一种处理跨域的方式：利用代理
+    - 写回`/api/***`要通过转发机制上线才能使用  webpack提供了一个代理功能：在config/index.js中`proxyTable:{'/api':{target:'http://localhost:8080',pathRewrite:{ '^/api': '/static/mock'}`
     - 更改了配置项 需要重启服务
   - 可通过钩子函数`mounted`写一个函数 然后在`methods`写一个成功的函数去返回数据`res`，获取对应的数据
 
@@ -229,7 +229,7 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
     - 安装Koa `npm install koa --save`
     - 安装Koa-router `npm install koa-router --save`
     - 可以使用`fs`模块读取`json`文件返回
-    - 将前端的`config/index.js`中`dev`项增加`proxyTable`的`target`换为后台端口 例如`3000` 将`pathRewrite`对应到后台的文件夹 修改`config`后前端服务需重启
+    - 将前端的`config/index.js`中`dev`项增加`proxyTable`的`target`换为后台端口 例如`3000` 将`pathRewrite`对应到后台的文件夹 修改`config`后前端服务需重启  其实是一种处理跨域的方式：利用代理
 
 - 真机测试
   - 可以通过`cmd` -> `ipconfig`查找本机上网ip地址 将ip地址放到网址上 是打不开的

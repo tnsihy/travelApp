@@ -14,6 +14,7 @@ module.exports = {
         target: 'http://localhost:3000'
         // pathRewrite: {
         //   '^/api': '/static/test'
+        //  改为'^/api': '/api'
         // }
       }
     },
